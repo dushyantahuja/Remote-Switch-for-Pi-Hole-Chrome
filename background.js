@@ -38,4 +38,12 @@ function init()
             });
         }
     });
+    chrome.storage.local.getBytesInUse(['default_snooze'], function(bytes){
+        if(bytes == 0)
+        {
+            chrome.storage.local.set({default_snooze: 0}, function () {
+                console.log("Default Snooze not set");
+            });
+        }
+    });
 }
